@@ -1,0 +1,320 @@
+/* Основные стили */
+body {
+  background: linear-gradient(45deg, #2c3e50, #34495e, #8e44ad, #9b59b6);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  user-select: none;
+}
+
+/* Стили для изображения клика */
+.click-image {
+  max-width: 140%;
+  max-height: 400px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+.click-image:active {
+  transform: scale(1.1);
+}
+
+/* Стили для счетчика */
+.counter {
+  font-size: 1.8em;
+  color: white;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  padding: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Стили для бургер-меню */
+.burger-menu {
+  display: block;
+  font-size: 2em;
+  cursor: pointer;
+  color: white;
+  padding: 10px;
+  position: fixed; /* Делаем его фиксированным */
+  top: 10px; /* Увеличиваем отступ сверху */
+  left: 10px; /* Немного отступаем от края */
+  z-index: 3;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  border: 3px solid white;
+  border-radius: 8px;
+}
+
+/* Затемняющий фон */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+/* Боковое меню */
+.side-menu {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  overflow-x: hidden;
+  transition: 0.3s;
+  z-index: 4;
+  padding-top: 60px;
+  border-right: 3px solid white;
+}
+
+.side-menu button {
+  display: block;
+  padding: 16px;
+  font-size: 18px;
+  color: white;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.side-menu button:hover {
+  background: #9b59b6;
+}
+
+/* Стили для вкладок */
+.tab-content {
+  margin-top: 20px;
+  display: none;
+}
+
+#game {
+  display: block;
+}
+
+/* Стили для заголовков вкладок */
+.tab-content h2 {
+  color: white;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  padding: 10px;
+  border-radius: 10px;
+  border: 3px solid white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Обертка для контейнера улучшений */
+#upgrades-wrapper {
+  flex-grow: 1;
+  overflow-y: scroll;
+  max-height: calc(100vh - 140px); /* Подгоняем под новую высоту */
+  scrollbar-width: none;
+}
+
+#upgrades-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Контейнер улучшений */
+#upgrades-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Высота для секции магазина */
+#shop {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px); /* Сохраняем высоту секции с учетом отступа */
+  padding-top: 20px;
+}
+
+#shop h2 {
+  margin-top: 50px; /* Увеличиваем отступ сверху, чтобы избежать перекрытия */
+  margin-bottom: 20px;
+}
+
+
+.upgrade-item {
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.upgrade-item button {
+  padding: 8px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  background: #3498db;
+  border: 2px solid white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upgrade-item button:hover {
+  background: #2980b9;
+}
+
+/* Анимация фона */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.upgrade-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  padding: 20px;
+  border: 3px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.achievements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.achievements-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.achievement-item {
+  padding: 15px;
+  border: 3px solid white;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  -webkit-user-select: none; /* Отключает выделение текста в Chrome и Safari */
+  -ms-user-select: none; /* Отключает выделение текста в IE 10+ */
+  user-select: none; /* Отключает выделение текста в современных браузерах */
+}
+
+img {
+  -webkit-user-drag: none; /* Отключает перетаскивание изображений */
+  user-select: none; /* Отключает выделение изображений */
+  touch-action: manipulation; /* Предотвращает действия при долгом нажатии */
+  -webkit-tap-highlight-color: transparent; /* Убирает синий цвет подсветки при касании */
+  outline: none; /* Убирает обводку вокруг изображения */
+}
+
+/* Стили для падающих изображений */
+.falling-image {
+  position: absolute;
+  top: 0;
+  width: 50px; /* Размер падающего изображения */
+  height: auto;
+  animation: fallSpinAnimation 3s linear forwards; /* Падение с вращением */
+  pointer-events: none; /* Отключение взаимодействия с падающим изображением */
+  z-index: -1; /* Отправляем изображение за основной контент */
+}
+
+/* Комбинированная анимация для падения и вращения */
+@keyframes fallSpinAnimation {
+  0% {
+      transform: translateY(-100px) rotate(0deg); /* Начало над экраном */
+  }
+  100% {
+      transform: translateY(100vh) rotate(360deg); /* Конец за пределами экрана с полным оборотом */
+  }
+}
+
+.upgrade-item img {
+  width: 100px; /* Задайте оптимальный размер для большей четкости */
+  height: 100px;
+  border-radius: 50%; /* Делает изображение круглым */
+  object-fit: contain; /* Избегает обрезки изображения */
+  border: 3px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+html, body {
+  overflow: hidden;
+  touch-action: none; /* Отключает прокрутку и зумирование на мобильных устройствах */
+}
+
+
+/* Контейнер улучшений с вертикальным расположением на маленьких экранах */
+#upgrades-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Стили для каждого улучшения */
+.upgrade-item {
+  border: 3px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 150px; /* Ширина улучшения */
+  max-width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Медиазапрос для вертикального отображения улучшений на маленьких экранах */
+@media (max-width: 600px) {
+  #upgrades-container {
+    flex-direction: column; /* Расположение в колонку */
+    align-items: center; /* Центрирование улучшений */
+  }
+
+  .upgrade-item {
+    width: 90%; /* Занимает почти всю ширину экрана */
+    max-width: 400px; /* Максимальная ширина для больших экранов */
+  }
+}
+
+#shop {
+  overflow-y: auto;
+  max-height: 80vh; /* Ограничиваем высоту для прокрутки */
+}
+
+
